@@ -2,8 +2,6 @@
 
 ### Installation:
  
-* put `.init.vim` file in `~/.config/nvim` directory,
-* install `vim-plug` by running given command: 
-`sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`,
-
-* update plugins by running `:UpdateRemotePlugins` in nvim.
+* put `init.lua` file in `~/.config/nvim` directory,
+* put `plugins.lua` file in `~/.config/nvim/lua` directory, open it using nvim and save,
+* download patched font from `https://www.nerdfonts.com`, then execute `sudo unzip -d /usr/share/fonts/FONT_NAME FONT_NAME.zip`.
