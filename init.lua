@@ -14,54 +14,58 @@ vim.cmd([[ colorscheme molokai ]])
 vim.cmd([[ highlight cursor guifg=white guibg=black guisp=3 ]])
 vim.cmd([[ set number ]])
 
-local function touch(name)
-	end
-
-vim.api.nvim_create_user_command('touch',
+vim.api.nvim_create_user_command('Touch',
 	function(args)
 		command = 'touch ' .. args.fargs[1]
 		os.execute(command)
 	end,
 { nargs = 1 })
 
-vim.api.nvim_create_user_command('rm',
+vim.api.nvim_create_user_command('Rm',
 	function(args)
 		command = 'rm -rf ' .. args.fargs[1]
 		os.execute(command)
 	end,
 { nargs = 1 })
 
-vim.api.nvim_create_user_command('mv',
+vim.api.nvim_create_user_command('Mv',
 	function(args)
 		command = 'mv ' .. args.fargs[1] .. ' ' .. args.fargs[2]
 		os.execute(command)
 	end,
 { nargs = '*' })
 
-vim.api.nvim_create_user_command('cp',
+vim.api.nvim_create_user_command('Cp',
 	function(args)
 		command = 'cp ' .. args.fargs[1] .. ' ' .. args.fargs[2]
 		os.execute(command)
 	end,
 { nargs = '*' })
 
-vim.api.nvim_create_user_command('ls',
+vim.api.nvim_create_user_command('Ls',
 	function(args)
 		command = 'ls'
 		os.execute(command)
 	end,
 { nargs = 0 })
 
-vim.api.nvim_create_user_command('mkdir',
+vim.api.nvim_create_user_command('Mkdir',
 	function(args)
 		command = 'mkdir ' .. args.fargs[1]
 		os.execute(command)
 	end,
 { nargs = 1 })
 
-vim.api.nvim_create_autocmd("vimenter", {
+vim.api.nvim_create_user_command('Mvdir',
+	function(args)
+		command = 'cp -r' .. args.fargs[1] .. ' ' .. args.fargs[2]
+		os.execute(command)
+	end,
+{ nargs = '*' })
+
+vim.api.nvim_create_autocmd("Vimenter", {
 	callback = function()
-		vim.cmd("nvimtreeopen")
+		vim.cmd("NvimTreeOpen")
 		vim.cmd("set autochdir")
 	end,
 })
