@@ -56,11 +56,6 @@ vim.api.nvim_create_autocmd("Vimenter", {
 	end,
 })
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.git_branches, {})
-
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
@@ -75,3 +70,9 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.git_branches, {})
+
