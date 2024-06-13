@@ -52,6 +52,14 @@ return packer.startup(function(use)
 	use("lervag/vimtex")
 	use("Shougo/deoplete.nvim")
 	use("rafi/awesome-vim-colorschemes")
+	use("mrk21/yaml-vim")
+	use("hashivim/vim-terraform")
+    use("nvim-lua/plenary.nvim")
+
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.6',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
