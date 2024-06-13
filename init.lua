@@ -42,13 +42,6 @@ vim.api.nvim_create_user_command('Cp',
 	end,
 { nargs = '*' })
 
-vim.api.nvim_create_user_command('Ls',
-	function(args)
-		command = 'ls'
-		os.execute(command)
-	end,
-{ nargs = 0 })
-
 vim.api.nvim_create_user_command('Mkdir',
 	function(args)
 		command = 'mkdir ' .. args.fargs[1]
@@ -56,19 +49,17 @@ vim.api.nvim_create_user_command('Mkdir',
 	end,
 { nargs = 1 })
 
-vim.api.nvim_create_user_command('Mvdir',
-	function(args)
-		command = 'cp -r' .. args.fargs[1] .. ' ' .. args.fargs[2]
-		os.execute(command)
-	end,
-{ nargs = '*' })
-
 vim.api.nvim_create_autocmd("Vimenter", {
 	callback = function()
 		vim.cmd("NvimTreeOpen")
 		vim.cmd("set autochdir")
 	end,
 })
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.git_branches, {})
 
 require("nvim-tree").setup({
   sort = {
