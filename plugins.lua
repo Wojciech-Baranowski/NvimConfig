@@ -54,7 +54,8 @@ return packer.startup(function(use)
 	use("rafi/awesome-vim-colorschemes")
 	use("mrk21/yaml-vim")
 	use("hashivim/vim-terraform")
-    use("nvim-lua/plenary.nvim")
+        use("nvim-lua/plenary.nvim")
+	use("Mohammed-Taher/AdvancedNewFile.nvim")
 
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.6',
